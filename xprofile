@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Apps to start with X
+
+source "$HOME/.config/profile"
+
+dunst &
+xwallpaper --zoom $HOME/.config/wallpaper &
+redshift -t 5500:3500 -l 59.916911:10.727567 &
+unclutter &
+setxkbmap -option ctrl:swapcaps &
+syncthing --no-browser --logfile=$HOME/.local/state/syncthing.log &
+cbatticon &
+

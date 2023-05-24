@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xwallpaper --zoom $HOME/.config/wallpaper &
+

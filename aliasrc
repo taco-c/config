@@ -1,0 +1,31 @@
+#!/bin/sh
+# Aliases
+
+# General
+alias ls="ls -hNv --color=auto --group-directories-first"
+alias ll="ls -l --time-style=long-iso"
+alias lla="ll -A"
+
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+
+alias v="$EDITOR"
+alias vv="f=\"\$(fzf)\"; [ -n \"\$f\" ] && $EDITOR \"\$f\""
+alias gg="f=\"\$(find "$HOME" -type d | fzf)\"; [ -n \"\$f\" ] && cd \"\$f\""
+
+alias hexec="cat $HOME/.local/share/zsh/histfile | fzf | sh"
+
+alias alert='notify-send --urgency=low "$([ $? = 0 ] && echo "Suksess" || echo "Feil")" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias groff="groff -Kutf8 -P-pa4 -dpaper=a4"
+alias d="devour"
+
+# Git
+alias g="git status"
+alias gd="git diff"
+alias gp="git pull --rebase"
+alias gb="git branch | fzf | xargs git switch"
+alias gba="git branch -a | fzf | xargs git switch"
+alias gl="git log --graph"
+alias glr="git log --graph --remotes"
+alias glm="git log --pretty=format:'%C(red)%h%C(reset) %C(green)%ad%C(reset) %s %C(bold blue)<%an>%C(reset)%C(yellow)%d%C(reset)' --graph --date=short"
+
