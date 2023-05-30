@@ -19,6 +19,7 @@ fi
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 ## System directories
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
@@ -30,9 +31,11 @@ export GOBINPATH="$HOME/.local/go/bin:$HOME/go/bin"
 export BIN_HOME="$HOME/.local/usr/bin"
 export PATH="$BIN_HOME:$GOBINPATH:$PATH"
 
-# Xorg
-#export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
-#export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
-
 export LESSHISTFILE=-
+
+# Source host-specific profile
+[ -f "$XDG_CONFIG_HOME/profile.local" ] && source "$XDG_CONFIG_HOME/profile.local"
+
+# Autostart non-X application
+[ -z "$(pgrep syncthing)" ] && syncthing > "$XDG_STATE_HOME/syncthing.log" &
 
