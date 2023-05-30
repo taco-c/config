@@ -14,7 +14,7 @@ elif [ "$DISTRO" = "ubuntu" ]; then
 	source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 	source /etc/bash_completion.d/git-prompt
-	PS1='%B%F{magenta}%T %~%f%b'
+	PS1='%B%F{magenta}%T %~%f%b '
 fi
 
 setopt appendhistory autocd extendedglob nomatch notify
