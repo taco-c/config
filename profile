@@ -37,5 +37,5 @@ export LESSHISTFILE=-
 [ -f "$XDG_CONFIG_HOME/profile.local" ] && source "$XDG_CONFIG_HOME/profile.local"
 
 # Autostart non-X application
-[ -z "$(pgrep syncthing)" ] && syncthing > "$XDG_STATE_HOME/syncthing.log" &
+[ -z "$(pgrep syncthing)" ] && syncthing --no-browser > "$XDG_STATE_HOME/syncthing.log" &
 

@@ -4,10 +4,11 @@
 
 source "$HOME/.config/profile"
 
+autorandr --change
 dunst &
 xwallpaper --zoom $HOME/.config/wallpaper &
-redshift -t 5500:3500 -l 59.916911:10.727567 &
+#redshift -t 5500:3500 -l 59.916911:10.727567 &
 unclutter &
-setxkbmap -option ctrl:swapcaps &
+setxkbmap -option caps:escape -option numpad:mac &
 cbatticon &
 
