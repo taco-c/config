@@ -1,0 +1,99 @@
+# The RIDE config
+
+install:
+  aur: $HOME/.local/aur
+  bin: $HOME/.local/usr/bin
+
+base:
+  hooks:
+    pre:
+      - ln -s "$INSTALL_PATH/profile" ~/.zprofile
+      - ln -s "$INSTALL_PATH/xprofile" ~/.xprofile
+      - mkdir -p $HOME/.local/usr
+      - mkdir -p $HOME/.local/state
+      - mkdir -p $HOME/.local/share/zsh
+    post:
+      - chsh -s /bin/zsh
+      - git clone https://github.com/taco-c/bin ~/.local/usr/bin
+      - >
+        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim
+        --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  packages:
+    main:
+      - neovim
+      - the_silver_searcher # neovim
+      - nodejs # neovim
+      - npm # neovim
+      - zsh
+      - zsh-completions # zsh
+      - zsh-autosuggestions # zsh
+      - zsh-syntax-highlighting # zsh
+      - git
+      - man-db
+      - tmux
+      - sshfs
+      - neofetch
+      - htop
+      - fzf
+      - bat
+      - yt-dlp
+      - libimobiledevice
+      - go-yq
+      - tokei
+
+x:
+  hooks:
+    post:
+      - sudo cp pkg/leftwm/usr/share/xsessions/leftwm.desktop /usr/share/xsessions
+      - sudo systemctl enable lightdm
+  packages:
+    main:
+      - polybar
+      - lightdm
+      - lightdm-gtk-greeter # lightdm
+      - alacritty
+      - rofi
+      - firefox
+      - syncthing
+      - xwallpaper
+      - sxiv
+      - mpv
+      - dunst
+      - unclutter
+      - zathura
+      - zathura-pdf-mupdf # zathura
+      - thunar
+      - tumbler # thunar
+      - gvfs # thunar
+      - ntfs-3g # thunar
+      - arandr
+      - redshift
+      - maim
+      - thunderbird
+      - xclip
+      - volumeicon
+      #- networkmanager
+      #- network-manager-applet
+      - gcr # surf
+      - webkit2gtk # surf
+      - ttf-font-awesome
+      - adobe-source-code-pro-fonts
+      - ttf-ubuntu-font-family
+      - adobe-source-han-sans-otc-fonts
+      - adobe-source-han-serif-otc-fonts
+      - noto-fonts-emoji
+    aur:
+      - leftwm
+      - ttf-go-git
+      - ttf-librebaskerville
+      - ttf-paratype
+    git:
+      - https://github.com/taco-c/surf.git
+
+doc:
+  packages:
+    main:
+      - pandoc
+    aur:
+      - wkhtmltopdf-static # pandoc
+
