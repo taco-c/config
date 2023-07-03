@@ -31,7 +31,7 @@ setopt PROMPT_SUBST
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=false
+#GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_HIDE_IF_PWD_IGNORED=true
 GIT_PS1_SHOWUPSTREAM="auto"
@@ -58,4 +58,9 @@ bindkey "\e[F" end-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[P" delete-char
 bindkey "\e[3~" delete-char
+
+# tmux-sessionizer
+sessionize-tmux() { tmux-sessionizer }
+zle -N sessionize-tmux
+bindkey "^t" sessionize-tmux
 

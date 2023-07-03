@@ -19,6 +19,8 @@ alias alert='notify-send --urgency=low "$([ $? = 0 ] && echo "Suksess" || echo "
 alias groff='groff -Kutf8 -P-pa4 -dpaper=a4'
 alias d='devour'
 
+alias tm='tmux-sessionizer'
+
 # Git
 alias g='git status'
 alias gd='git diff'
@@ -26,7 +28,7 @@ alias gp='git pull --rebase'
 alias gpm='branch=$(git rev-parse --abbrev-ref HEAD) && git switch master && gp && git switch $branch'
 alias gb='git branch | fzf | xargs git switch'
 alias gba='git branch -a | fzf | xargs git switch'
-alias gl='git log --graph'
-alias glr='git log --graph --remotes'
-alias glm='git log --pretty=format:'"'"'%C(red)%h%C(reset) %C(green)%ad%C(reset) %s %C(bold blue)<%an>%C(reset)%C(yellow)%d%C(reset)'"'"' --graph --date=short'
+alias gl='git log --color --graph | less -R'
+alias glr='git log --color --graph --remotes | less -R'
+alias glm='git log --color --pretty=format:'"'"'%C(red)%h%C(reset) %C(green)%ad%C(reset) %s %C(bold blue)<%an>%C(reset)%C(yellow)%d%C(reset)'"'"' --graph --date=short | less -R'
 

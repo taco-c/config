@@ -34,14 +34,16 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'ThePrimeagen/harpoon'
 
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'jceb/vim-orgmode'
+	"Plug 'dense-analysis/ale'
+	Plug 'tpope/vim-obsession'
 call plug#end()
 
 let g:coc_global_extensions = [
 	\ 'coc-sh',
 	\ 'coc-vimlsp',
 	\ 'coc-sumneko-lua',
-	\ 'coc-go',
 	\ 'coc-rust-analyzer',
 	\ 'coc-clangd',
 	\ 'coc-tsserver',
@@ -86,12 +88,14 @@ if !empty($WORK_ENV)
 	autocmd FileType php setlocal tabstop=4 shiftwidth=4 expandtab
 endif
 
+autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType org setlocal expandtab
 
 " theming
 colorscheme gruvbox
 "colorscheme tokyonight-storm
 "hi CursorLine ctermbg=darkgrey term=none cterm=none
+hi Normal guibg=NONE ctermbg=NONE
 
 autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=100, on_visual=true}
 
@@ -156,11 +160,17 @@ nnoremap <expr> <C-u> winheight(0)/4 . '<C-u>zz'
 "nnoremap N Nzzzv
 nnoremap Q <nop>
 nnoremap * *N
+nnoremap <C-t> <cmd>silent !tmux neww tmux-sessionizer<CR>
+inoremap {<cr> {}<esc>i<cr><esc>O
 
+" Fix human errors
 nnoremap <S-down> <down>
 nnoremap <S-up> <up>
 vnoremap <S-down> <down>
 vnoremap <S-up> <up>
+nnoremap q: <nop>
+command! W w
+command! Q q
 
 " :let g:gitgutter_diff_base = 'master'
 
@@ -252,7 +262,7 @@ nnoremap <leader>f :Ag<CR>
 
 " harpoon
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
-nnoremap <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>t :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <a-1> :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <a-2> :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <a-3> :lua require("harpoon.ui").nav_file(3)<CR>
