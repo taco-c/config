@@ -40,6 +40,7 @@ base:
       - libimobiledevice
       - go-yq
       - tokei
+      - syncthing
 
 x:
   hooks:
@@ -54,7 +55,6 @@ x:
       - alacritty
       - rofi
       - firefox
-      - syncthing
       - xwallpaper
       - sxiv
       - mpv
