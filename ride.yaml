@@ -90,6 +90,11 @@ x:
     git:
       - https://github.com/taco-c/surf.git
 
+work:
+  packages:
+    aur:
+      - openvpn3
+
 doc:
   packages:
     main:
