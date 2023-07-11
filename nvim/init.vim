@@ -5,39 +5,41 @@
 " |_|  |_|_| |_|\_/ |_|_| |_| |_|
 "
 
-
 """""""""""
 " Plugins "
 """""""""""
 
 call plug#begin('~/.config/nvim/plugged')
+	" Required by:
+	" - ThePrimeagen/harpoon
+	" - nvim-telescope/telescope.nvim
+	Plug 'nvim-lua/plenary.nvim'
+
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'preservim/nerdcommenter'
 	Plug 'vim-airline/vim-airline'
 	Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'folke/zen-mode.nvim'
-	"Plug 'Yggdroot/indentLine'
 	Plug 'lukas-reineke/indent-blankline.nvim'
 
+	" Themes
 	"Plug 'lunarvim/synthwave84.nvim'
-	"Plug 'rose-pine/neovim'
-	"Plug 'joshdick/onedark.vim'
-    Plug 'morhetz/gruvbox'
-    "Plug 'folke/tokyonight.nvim'
-	"Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+    "Plug 'morhetz/gruvbox'
+	"Plug 'folke/tokyonight.nvim'
 
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " required by junegunn/fzf.vim
 	Plug 'junegunn/fzf.vim'
 
-	Plug 'nvim-lua/plenary.nvim' " required by ThePrimeagen/harpoon
 	Plug 'ThePrimeagen/harpoon'
-
+	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
+	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'jceb/vim-orgmode'
 	"Plug 'dense-analysis/ale'
 	Plug 'tpope/vim-obsession'
+	Plug 'mbbill/undotree'
 call plug#end()
 
 let g:coc_global_extensions = [
@@ -57,7 +59,6 @@ let g:coc_global_extensions = [
 	\ 'coc-vetur',
 	\ ]
 
-
 """"""""
 " Sets "
 """"""""
@@ -76,6 +77,7 @@ set mouse=a
 set mousemodel=
 set splitbelow splitright
 set list                   " Show whitespace
+"vim.opt.listchars:append 'tab:→ '
 set cursorline             " Highlight current line
 set scrolloff=5
 set updatetime=100
@@ -91,11 +93,12 @@ endif
 autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType org setlocal expandtab
 
-" theming
-colorscheme gruvbox
-"colorscheme tokyonight-storm
-"hi CursorLine ctermbg=darkgrey term=none cterm=none
-hi Normal guibg=NONE ctermbg=NONE
+" Theming
+colorscheme quiet
+highlight Normal guibg=NONE ctermbg=NONE
+set colorcolumn=80,100,120
+command! Col set colorcolumn=80,120
+command! NoCol set colorcolumn=
 
 autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=100, on_visual=true}
 
@@ -104,12 +107,6 @@ highlight GitGutterAdd          ctermfg=2 ctermbg=2
 highlight GitGutterChange       ctermfg=3 ctermbg=3
 highlight GitGutterChangeDelete ctermfg=3 ctermbg=3
 highlight GitGutterDelete       ctermfg=1 ctermbg=1
-
-" Rulers
-set colorcolumn=80,100,120
-"highlight ColorColumn ctermbg=8
-command Col set colorcolumn=80,120
-command NoCol set colorcolumn=
 
 " netrw
 let g:netrw_liststyle = 3
@@ -123,7 +120,6 @@ require('nvim-treesitter.configs').setup {
 	},
 	sync_install = false,
 	auto_install = true,
-
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = {'org', 'php'},
@@ -141,8 +137,19 @@ require("zen-mode").setup {
 		}
 	}
 }
-EOF
 
+require("indent_blankline").setup {
+	show_current_context = true,
+	show_current_context_start = false,
+	show_first_indent_level = true,
+	char = "▏",
+	use_treesitter = true,
+	show_trailing_blankline_indent = false,
+	disable_with_nolist = true,
+}
+
+require('telescope').load_extension('fzf')
+EOF
 
 """"""""""
 " Remaps "
@@ -277,4 +284,7 @@ nnoremap <a-9> :lua require("harpoon.ui").nav_file(9)<CR>
 let g:NERDCreateDefaultMappings = 0
 nnoremap <leader>k :call nerdcommenter#Comment('n', 'toggle')<CR>
 vnoremap <leader>k :call nerdcommenter#Comment('x', 'toggle')<CR>
+
+" undotree
+nnoremap <F5> :UndotreeToggle<CR>
 
