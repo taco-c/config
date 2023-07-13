@@ -10,7 +10,7 @@ alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
 alias v='$EDITOR'
-alias vv='f=\"\$(fzf)\"; [ -n \"\$f\" ] && $EDITOR \"\$f\"'
+alias vv='f="$(fzf)"; [ -n "$f" ] && $EDITOR "$f"'
 alias gg='f="$(find "$HOME" -type d | fzf)"; [ -n "$f" ] && cd "$f"'
 
 alias hexec='cat $HOME/.local/share/zsh/histfile | fzf | sh'
