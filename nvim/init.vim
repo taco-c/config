@@ -26,6 +26,8 @@ call plug#begin('~/.config/nvim/plugged')
 	" Themes
 	Plug 'morhetz/gruvbox'
 	Plug 'plan9-for-vimspace/acme-colors'
+	Plug 'andreasvc/vim-256noir'
+	Plug 'fxn/vim-monochrome'
 	"Plug 'lunarvim/synthwave84.nvim'
 	"Plug 'folke/tokyonight.nvim'
 
@@ -170,6 +172,7 @@ nnoremap Q <nop>
 nnoremap * *N
 nnoremap <C-t> <cmd>silent !tmux neww tmux-sessionizer<CR>
 inoremap {<cr> {}<esc>i<cr><esc>O
+nnoremap / /\c
 
 " Fix human errors
 nnoremap <S-down> <down>
