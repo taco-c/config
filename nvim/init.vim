@@ -24,8 +24,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'lukas-reineke/indent-blankline.nvim'
 
 	" Themes
+	Plug 'morhetz/gruvbox'
+	Plug 'plan9-for-vimspace/acme-colors'
 	"Plug 'lunarvim/synthwave84.nvim'
-    "Plug 'morhetz/gruvbox'
 	"Plug 'folke/tokyonight.nvim'
 
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " required by junegunn/fzf.vim
