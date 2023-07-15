@@ -36,7 +36,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 	Plug 'ThePrimeagen/harpoon'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
-	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+	"Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'jceb/vim-orgmode'
@@ -151,7 +151,7 @@ require("indent_blankline").setup {
 	disable_with_nolist = true,
 }
 
-require('telescope').load_extension('fzf')
+--require('telescope').load_extension('fzf')
 EOF
 
 """"""""""
