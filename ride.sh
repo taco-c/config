@@ -11,26 +11,31 @@ AUR_INSTALL_PATH="$HOME/.local/aur"
 GIT_INSTALL_PATH="$HOME/.local/src"
 
 if [ -z "$(command -v yq)" ]; then
-	sudo pacman -S go-yq
+	sudo pacman -Sy go-yq
 fi
+
+parse() {
+	yq "$1" $RIDE_YAML | grep -v '^null$' | sed 's/^- //' | sed 's/^>//'
+}
 
 install_module() {
 	module="$1"
+	IFS=$'\n'
 
 	echo "RIDE: installing module $module"
 
 	# Pre install hooks
-	for cmd in $(yq -r --arg MODULE $module '.$module.hooks.pre' $RIDE_YAML); do
+	for cmd in "$(parse .$module.hooks.pre)"; do
 		echo "RIDE: $module pre hook: $cmd"
-		eval $cmd
+		eval "$cmd"
 	done
 
 	# Install packages from the main repos
 	echo "RIDE: installing $module packages from main repos"
-	yq -r --arg MODULE $module '.$MODULE.packages.main[]' $RIDE_YAML | sudo pacman -S --needed --noconfirm -
+	parse ".$module.packages.main[]" | sudo pacman -Sy --needed --noconfirm -
 
 	# Install AUR packages
-	for package in $(yq -r --arg MODULE $module '.$MODULE.packages.aur[]' $RIDE_YAML); do
+	for package in $(parse .$module.packages.aur[]); do
 		echo "RIDE: $module AUR install: $package"
 		[ ! -d "$AUR_INSTALL_PATH" ] && mkdir -p "$AUR_INSTALL_PATH"
 		cd "$AUR_INSTALL_PATH" \
@@ -41,7 +46,8 @@ install_module() {
 	done
 
 	# Install git packages
-	for repo in $(yq -r --arg MODULE $module '.$MODULE.packages.git[]' $RIDE_YAML); do
+	# Need to check first if repo exists?
+	for repo in $(parse .$module.packages.git[]); do
 		echo "RIDE: $module installing from git: $repo"
 		[ ! -d "$GIT_INSTALL_PATH" ] && mkdir -p "$GIT_INSTALL_PATH"
 		dir=$(basename "$repo" | sed 's/\.git$//')
@@ -53,9 +59,9 @@ install_module() {
 	done
 
 	# Post install hooks
-	for cmd in $(yq -r --arg MODULE $module '.$MODULE.hooks.post' $RIDE_YAML); do
+	for cmd in "$(parse .$module.hooks.post)"; do
 		echo "RIDE: $module post hook: $cmd"
-		eval $cmd
+		eval "$cmd"
 	done
 }
 
