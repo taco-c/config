@@ -16,7 +16,8 @@ base:
       - chsh -s /bin/zsh
       - git clone https://github.com/taco-c/bin ~/.local/tools
       - >
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim
+        [ ! -e "$XDG_DATA_HOME/nvim/site/autoload/plug.vim" ] &&
+        sh -c 'curl -fLo $XDG_DATA_HOME/nvim/site/autoload/plug.vim
         --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   packages:
     main:
@@ -45,7 +46,6 @@ base:
 x:
   hooks:
     post:
-      - sudo cp pkg/leftwm/usr/share/xsessions/leftwm.desktop /usr/share/xsessions
       - sudo systemctl enable lightdm
   packages:
     main:
@@ -83,11 +83,11 @@ x:
       - adobe-source-han-serif-otc-fonts
       - noto-fonts-emoji
     aur:
-      - leftwm
       - ttf-go-git
       - ttf-librebaskerville
       - ttf-paratype
     git:
+      - https://github.com/taco-c/dwm.git
       - https://github.com/taco-c/surf.git
 
 work:
