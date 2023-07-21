@@ -274,15 +274,15 @@ nnoremap <leader>f :Ag<CR>
 " harpoon
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>t :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <a-1> :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <a-2> :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <a-3> :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <a-4> :lua require("harpoon.ui").nav_file(4)<CR>
-nnoremap <a-5> :lua require("harpoon.ui").nav_file(5)<CR>
-nnoremap <a-6> :lua require("harpoon.ui").nav_file(6)<CR>
-nnoremap <a-7> :lua require("harpoon.ui").nav_file(7)<CR>
-nnoremap <a-8> :lua require("harpoon.ui").nav_file(8)<CR>
-nnoremap <a-9> :lua require("harpoon.ui").nav_file(9)<CR>
+nnoremap <a-1> :lua require("harpoon.ui").nav_file(1)<CR>zz
+nnoremap <a-2> :lua require("harpoon.ui").nav_file(2)<CR>zz
+nnoremap <a-3> :lua require("harpoon.ui").nav_file(3)<CR>zz
+nnoremap <a-4> :lua require("harpoon.ui").nav_file(4)<CR>zz
+nnoremap <a-5> :lua require("harpoon.ui").nav_file(5)<CR>zz
+nnoremap <a-6> :lua require("harpoon.ui").nav_file(6)<CR>zz
+nnoremap <a-7> :lua require("harpoon.ui").nav_file(7)<CR>zz
+nnoremap <a-8> :lua require("harpoon.ui").nav_file(8)<CR>zz
+nnoremap <a-9> :lua require("harpoon.ui").nav_file(9)<CR>zz
 
 " nerdcommenter
 let g:NERDCreateDefaultMappings = 0
