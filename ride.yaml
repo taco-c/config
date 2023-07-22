@@ -88,6 +88,7 @@ x:
       - ttf-paratype
     git:
       - https://github.com/taco-c/dwm.git
+      - https://github.com/taco-c/tabbed.git
       - https://github.com/taco-c/surf.git
 
 # TODO: add work bin repo
