@@ -71,6 +71,7 @@ x:
       - thunderbird
       - xclip
       - volumeicon
+      - cbatticon
       - network-manager-applet
       - gcr # surf
       - webkit2gtk # surf
