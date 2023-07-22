@@ -10,6 +10,9 @@ xwallpaper --zoom $HOME/.config/wallpaper &
 #redshift -t 5500:3500 -l 59.916911:10.727567 &
 unclutter &
 setxkbmap -option caps:escape -option numpad:mac &
+
+# Systray
+volumeicon &
 cbatticon &
 nm-applet &
 
