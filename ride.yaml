@@ -9,12 +9,11 @@ base:
     pre:
       - ln -s "$INSTALL_PATH/profile" ~/.zprofile
       - ln -s "$INSTALL_PATH/xprofile" ~/.xprofile
-      - mkdir -p $HOME/.local/usr
       - mkdir -p $HOME/.local/state
       - mkdir -p $HOME/.local/share/zsh
     post:
       - chsh -s /bin/zsh
-      - git clone https://github.com/taco-c/bin ~/.local/tools
+      - git clone https://github.com/taco-c/utilies ~/.local/tools
       - >
         [ ! -e "$XDG_DATA_HOME/nvim/site/autoload/plug.vim" ] &&
         sh -c 'curl -fLo $XDG_DATA_HOME/nvim/site/autoload/plug.vim
@@ -72,8 +71,7 @@ x:
       - thunderbird
       - xclip
       - volumeicon
-      #- networkmanager
-      #- network-manager-applet
+      - network-manager-applet
       - gcr # surf
       - webkit2gtk # surf
       - ttf-font-awesome

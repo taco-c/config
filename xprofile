@@ -11,4 +11,5 @@ xwallpaper --zoom $HOME/.config/wallpaper &
 unclutter &
 setxkbmap -option caps:escape -option numpad:mac &
 cbatticon &
+nm-applet &
 
