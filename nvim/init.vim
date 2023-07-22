@@ -28,6 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'plan9-for-vimspace/acme-colors'
 	Plug 'andreasvc/vim-256noir'
 	Plug 'fxn/vim-monochrome'
+	Plug 'ntk148v/komau.vim'
 	"Plug 'lunarvim/synthwave84.nvim'
 	"Plug 'folke/tokyonight.nvim'
 
