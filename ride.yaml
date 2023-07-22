@@ -90,8 +90,11 @@ x:
       - https://github.com/taco-c/dwm.git
       - https://github.com/taco-c/surf.git
 
+# TODO: add work bin repo
 work:
   packages:
+    main:
+      - chromium
     aur:
       - openvpn3
 
