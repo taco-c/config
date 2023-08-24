@@ -186,6 +186,11 @@ command! Q q
 
 " :let g:gitgutter_diff_base = 'master'
 
+" Note management
+let divider = '------------------------------------------------------------------------------'
+execute 'nnoremap <space>nn /' . divider . '<CR>NVnk"ndgg0}p/ÆØÆØ<CR>'
+execute 'nnoremap <space>nc gg0}o' . divider . '<CR><CR><CR><ESC>ki'
+
 " Replace
 nnoremap <leader>rw "_diwP
 nnoremap <leader>rW "_diWP
