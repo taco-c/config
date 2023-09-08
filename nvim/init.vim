@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'folke/zen-mode.nvim'
+	Plug 'folke/todo-comments.nvim'
 	Plug 'lukas-reineke/indent-blankline.nvim'
 
 	" Themes
@@ -141,6 +142,8 @@ require("zen-mode").setup {
 		}
 	}
 }
+
+require("todo-comments").setup()
 
 require("indent_blankline").setup {
 	show_current_context = true,
