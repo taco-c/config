@@ -64,3 +64,8 @@ sessionize-tmux() { tmux-sessionizer }
 zle -N sessionize-tmux
 bindkey "^t" sessionize-tmux
 
+# Open nvim in current dir with file selecter
+nvim_open_dir_files() { nvim -c "execute GFilesOrFiles()" . }
+zle -N nvim_open_dir_files
+bindkey "^p" nvim_open_dir_files
+
