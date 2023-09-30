@@ -82,7 +82,6 @@ set mouse=a
 set mousemodel=
 set splitbelow splitright
 set list                   " Show whitespace
-"vim.opt.listchars:append 'tab:→ '
 set cursorline             " Highlight current line
 set scrolloff=5
 set updatetime=100
@@ -145,15 +144,19 @@ require("zen-mode").setup {
 
 require("todo-comments").setup()
 
-require("indent_blankline").setup {
-	show_current_context = true,
-	show_current_context_start = false,
-	show_first_indent_level = true,
-	char = "▏",
-	use_treesitter = true,
-	show_trailing_blankline_indent = false,
-	disable_with_nolist = true,
-}
+-- lukas-reineke/indent-blankline.nvim
+vim.opt.listchars:append 'tab:→ '
+require("ibl").setup()
+
+--require("indent_blankline").setup {
+--	show_current_context = true,
+--	show_current_context_start = false,
+--	show_first_indent_level = true,
+--	char = "▏",
+--	use_treesitter = true,
+--	show_trailing_blankline_indent = false,
+--	disable_with_nolist = true,
+--}
 
 --require('telescope').load_extension('fzf')
 EOF
