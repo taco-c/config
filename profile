@@ -28,7 +28,7 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export GOPATH="$HOME/.local/go:$HOME/go"
 export GOBINPATH="$HOME/.local/go/bin:$HOME/go/bin"
-export BIN_HOME="$HOME/.local/usr/bin"
+export BIN_HOME="$HOME/.local/tools"
 export PATH="$HOME/.local/tools:$BIN_HOME:$GOBINPATH:$HOME/.local/bin:$PATH"
 
 export LESSHISTFILE=-
