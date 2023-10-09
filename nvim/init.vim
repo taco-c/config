@@ -196,6 +196,8 @@ command! Q q
 let divider = '------------------------------------------------------------------------------'
 execute 'nnoremap <space>nn /' . divider . '<CR>NVnk"ndgg0}p/ÆØÆØ<CR>'
 execute 'nnoremap <space>nc gg0}o' . divider . '<CR><CR><CR><ESC>ki'
+execute 'nnoremap <space>nd /' . divider . '<CR>NVnk"nd/ÆØÆØ<CR>'
+execute 'nnoremap <space>np /' . divider . '<CR>k0p/ÆØÆØ<CR>'
 
 " Replace
 nnoremap <leader>rw "_diwP
