@@ -22,7 +22,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'folke/zen-mode.nvim'
 	Plug 'folke/todo-comments.nvim'
-	Plug 'lukas-reineke/indent-blankline.nvim'
+	"Plug 'lukas-reineke/indent-blankline.nvim'
 
 	" Themes
 	Plug 'morhetz/gruvbox'
@@ -88,6 +88,7 @@ set updatetime=100
 
 if !empty($WORK_ENV)
 	autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
+	autocmd FileType json setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd FileType html setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd FileType css setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd FileType vue setlocal tabstop=2 shiftwidth=2 expandtab
@@ -146,7 +147,7 @@ require("todo-comments").setup()
 
 -- lukas-reineke/indent-blankline.nvim
 vim.opt.listchars:append 'tab:→ '
-require("ibl").setup()
+--require("ibl").setup()
 
 --require("indent_blankline").setup {
 --	show_current_context = true,
