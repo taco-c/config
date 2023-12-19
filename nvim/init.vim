@@ -5,6 +5,7 @@
 " |_|  |_|_| |_|\_/ |_|_| |_| |_|
 "
 
+
 """""""""""
 " Plugins "
 """""""""""
@@ -64,6 +65,7 @@ let g:coc_global_extensions = [
 	\ 'coc-vetur',
 	\ ]
 
+
 """"""""
 " Sets "
 """"""""
@@ -99,19 +101,29 @@ autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType org setlocal expandtab
 
 " Theming
-colorscheme quiet
-highlight Normal guibg=NONE ctermbg=NONE
+function! ToggleColors()
+	if g:colors_name == "quiet"
+		colorscheme gruvbox
+	else
+		colorscheme quiet
+	endif
+
+	highlight Normal guibg=NONE ctermbg=NONE
+
+	" vim-gitgutter
+	highlight GitGutterAdd          ctermfg=2 ctermbg=2
+	highlight GitGutterChange       ctermfg=3 ctermbg=3
+	highlight GitGutterChangeDelete ctermfg=3 ctermbg=3
+	highlight GitGutterDelete       ctermfg=1 ctermbg=1
+endfunction
+
+let g:colors_name = ""
+call ToggleColors()
 set colorcolumn=80,100,120
 command! Col set colorcolumn=80,120
 command! NoCol set colorcolumn=
 
 autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=100, on_visual=true}
-
-" vim-gitgutter
-highlight GitGutterAdd          ctermfg=2 ctermbg=2
-highlight GitGutterChange       ctermfg=3 ctermbg=3
-highlight GitGutterChangeDelete ctermfg=3 ctermbg=3
-highlight GitGutterDelete       ctermfg=1 ctermbg=1
 
 " netrw
 let g:netrw_liststyle = 3
@@ -162,6 +174,7 @@ vim.opt.listchars:append 'tab:→ '
 --require('telescope').load_extension('fzf')
 EOF
 
+
 """"""""""
 " Remaps "
 """"""""""
@@ -170,6 +183,7 @@ let mapleader = ' '
 nnoremap <leader>e :!'%:p'<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>z :ZenMode<CR>
+nnoremap <leader>c :call ToggleColors()<CR>
 nnoremap <C-a> ggVG
 nnoremap J mzJ`z
 nnoremap <expr> <C-d> winheight(0)/4 . '<C-d>zz'
@@ -248,11 +262,11 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " netrw
 function! ToggleNetrw()
-  if bufname("%") == "NetrwTreeListing"
-    Rex
-  else
-    Ex .
-  endif
+	if bufname("%") == "NetrwTreeListing"
+		Rex
+	else
+		Ex .
+	endif
 endfunction
 nnoremap <leader><tab> :call ToggleNetrw()<CR>
 
