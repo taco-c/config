@@ -27,6 +27,7 @@ alias gd='git diff'
 alias gp='git pull --rebase'
 alias gpm='branch=$(git rev-parse --abbrev-ref HEAD) && git switch master && gp && git switch $branch'
 alias gb='git branch | fzf | xargs git switch'
+alias gbr="git branch -r | fzf | sed -e 's/^\s*origin\///' | xargs git switch"
 alias gba='git branch -a | fzf | xargs git switch'
 alias gl='git log --color --graph | less -R'
 alias glr='git log --color --graph --remotes | less -R'
