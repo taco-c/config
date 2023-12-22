@@ -63,6 +63,7 @@ let g:coc_global_extensions = [
 	\ 'coc-angular',
 	\ 'coc-sql',
 	\ 'coc-vetur',
+	\ 'coc-zls',
 	\ ]
 
 
