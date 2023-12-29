@@ -1,0 +1,13 @@
+font:
+  size: 8
+
+window:
+  padding:
+    x: 3
+    y: 3
+
+colors:
+  primary:
+    background: "#222222"
+    foreground: "#FFFFFF"
+

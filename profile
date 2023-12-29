@@ -31,6 +31,11 @@ export GOBINPATH="$HOME/.local/go/bin:$HOME/go/bin"
 export BIN_HOME="$HOME/.local/tools"
 export PATH="$BIN_HOME:$GOBINPATH:$HOME/.local/bin:$PATH"
 
+# ZVM
+export ZVM_INSTALL="$HOME/.zvm/self"
+export PATH="$PATH:$HOME/.zvm/bin"
+export PATH="$PATH:$ZVM_INSTALL/"
+
 export LESSHISTFILE=-
 
 # Source host-specific profile
