@@ -41,6 +41,7 @@ base:
       - go-yq
       - tokei
       - syncthing
+      - entr
 
 x:
   hooks:
