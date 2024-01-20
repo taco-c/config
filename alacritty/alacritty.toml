@@ -1,0 +1,20 @@
+[colors.primary]
+background = "#222222"
+foreground = "#FFFFFF"
+
+[font]
+size = 10
+
+[[hints.enabled]]
+command = "xdg-open"
+hyperlinks = true
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "Control"
+
+[window.padding]
+x = 3
+y = 3
