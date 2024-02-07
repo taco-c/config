@@ -126,6 +126,9 @@ command! NoCol set colorcolumn=
 
 autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=100, on_visual=true}
 
+" vim-airline
+let g:airline_section_b = ''
+
 " netrw
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
