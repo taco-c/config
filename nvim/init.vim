@@ -288,17 +288,17 @@ nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 nmap <leader>do <Plug>(coc-codeaction)
 nmap <leader>rn <Plug>(coc-rename)
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
-                             " \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+							" \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " fzf.vim
 let g:fzf_preview_window = ['up,50%', 'ctrl-/']
 
 function! GFilesOrFiles()
-    if isdirectory(".git") != 0
-        GFiles
-    else
-        Files
-    endif
+	if isdirectory(".git") != 0
+		GFiles
+	else
+		Files
+	endif
 endfunction
 
 nnoremap <C-p> :call GFilesOrFiles()<CR>
