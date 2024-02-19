@@ -42,7 +42,7 @@ HISTFILE="$XDG_DATA_HOME/zsh/histfile"
 HISTSIZE=10000
 SAVEHIST=10000
 
-mkdirgo() { mkdir "$1" && cd "$1"; }
+mkdirgo() { mkdir -p "$1" && cd "$1"; }
 
 # Show hidden files in fzf
 export FZF_DEFAULT_COMMAND="find . -not -path \"*.git/*\""
