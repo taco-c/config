@@ -42,6 +42,7 @@ call plug#begin('~/.config/nvim/plugged')
 	"Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+	Plug 'ziglang/zig.vim'
 	Plug 'jceb/vim-orgmode'
 	"Plug 'dense-analysis/ale'
 	Plug 'tpope/vim-obsession'
@@ -63,9 +64,9 @@ let g:coc_global_extensions = [
 	\ 'coc-angular',
 	\ 'coc-sql',
 	\ 'coc-vetur',
-	\ 'coc-zls',
 	\ ]
 
+"\ 'coc-zls',
 
 """"""""
 " Sets "
