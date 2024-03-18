@@ -41,7 +41,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 	"Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'ziglang/zig.vim'
 	Plug 'jceb/vim-orgmode'
 	"Plug 'dense-analysis/ale'
@@ -64,9 +63,8 @@ let g:coc_global_extensions = [
 	\ 'coc-angular',
 	\ 'coc-sql',
 	\ 'coc-vetur',
+	\ 'coc-go',
 	\ ]
-
-"\ 'coc-zls',
 
 """"""""
 " Sets "
@@ -279,6 +277,7 @@ nnoremap <leader><tab> :call ToggleNetrw()<CR>
 nnoremap <leader>g :Git<CR>
 
 " coc.nvim
+inoremap <silent><expr> <c-space> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
