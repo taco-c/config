@@ -278,6 +278,7 @@ nnoremap <leader>g :Git<CR>
 
 " coc.nvim
 inoremap <silent><expr> <c-space> coc#refresh()
+"inoremap <silent> <s-space> <c-\><c-O>:call CocActionAsync('showSignatureHelp')<cr>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
