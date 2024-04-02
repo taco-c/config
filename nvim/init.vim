@@ -17,6 +17,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-lua/plenary.nvim'
 
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'preservim/nerdcommenter'
 	Plug 'vim-airline/vim-airline'
 	Plug 'tpope/vim-fugitive'
@@ -34,7 +35,8 @@ call plug#begin('~/.config/nvim/plugged')
 	"Plug 'lunarvim/synthwave84.nvim'
 	"Plug 'folke/tokyonight.nvim'
 
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " required by junegunn/fzf.vim
+	" Required by junegunn/fzf.vim
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 
 	Plug 'ThePrimeagen/harpoon'
