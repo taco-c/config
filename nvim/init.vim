@@ -66,6 +66,7 @@ let g:coc_global_extensions = [
 	\ 'coc-sql',
 	\ 'coc-vetur',
 	\ 'coc-go',
+	\ 'coc-texlab',
 	\ ]
 
 """"""""
