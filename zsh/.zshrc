@@ -39,8 +39,11 @@ GIT_PS1_SHOWUPSTREAM="auto"
 RPROMPT='$(__git_ps1 " %s")'
 
 HISTFILE="$XDG_DATA_HOME/zsh/histfile"
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=10000000
+SAVEHIST=10000000
+
+# Share history in every terminal session
+setopt SHARE_HISTORY
 
 mkdirgo() { mkdir -p "$1" && cd "$1"; }
 
@@ -68,4 +71,9 @@ bindkey "^t" sessionize-tmux
 nvim_open_dir_files() { nvim -c "execute GFilesOrFiles()" . }
 zle -N nvim_open_dir_files
 bindkey "^p" nvim_open_dir_files
+
+# Execute from history
+hexec() { tac $HISTFILE | fzf }
+zle -N hexec
+bindkey '^h' hexec
 

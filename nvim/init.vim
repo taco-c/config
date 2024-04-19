@@ -194,8 +194,10 @@ nnoremap <C-a> ggVG
 nnoremap J mzJ`z
 nnoremap <expr> <C-d> winheight(0)/4 . '<C-d>zz'
 nnoremap <expr> <C-u> winheight(0)/4 . '<C-u>zz'
-"nnoremap n nzzzv
-"nnoremap N Nzzzv
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap <c-o> <c-o>zz
+nnoremap <c-i> <c-i>zz
 nnoremap Q <nop>
 nnoremap * *N
 nnoremap <C-t> <cmd>silent !tmux neww tmux-sessionizer<CR>
