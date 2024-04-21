@@ -93,14 +93,14 @@ set updatetime=100
 set linebreak              " Don't break lines in the middle of words
 
 if !empty($WORK_ENV)
-	autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
-	autocmd FileType json setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd FileType html setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd FileType css setlocal tabstop=2 shiftwidth=2 expandtab
-	autocmd FileType vue setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd FileType php setlocal tabstop=4 shiftwidth=4 expandtab
 endif
 
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd FileType json setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd FileType vue setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType org setlocal expandtab
 
