@@ -201,7 +201,8 @@ nnoremap <c-i> <c-i>zz
 nnoremap Q <nop>
 nnoremap * *N
 nnoremap <C-t> <cmd>silent !tmux neww tmux-sessionizer<CR>
-inoremap {<cr> {}<esc>i<cr><esc>O
+"inoremap {<cr> {}<esc>i<cr><esc>O
+inoremap {<cr> {}<esc>i<cr><esc>kA
 nnoremap / /\c
 
 " Fix human errors
