@@ -90,6 +90,7 @@ set list                   " Show whitespace
 set cursorline             " Highlight current line
 set scrolloff=5
 set updatetime=100
+set linebreak              " Don't break lines in the middle of words
 
 if !empty($WORK_ENV)
 	autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
@@ -123,7 +124,7 @@ endfunction
 let g:colors_name = ""
 call ToggleColors()
 set colorcolumn=80,100,120
-command! Col set colorcolumn=80,120
+command! Col set colorcolumn=80,100,120
 command! NoCol set colorcolumn=
 
 autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=100, on_visual=true}
@@ -185,10 +186,22 @@ EOF
 " Remaps "
 """"""""""
 
+let g:colvis = 1
+function ToggleZen()
+	ZenMode
+	if g:colvis == 1
+		NoCol
+		let g:colvis = 0
+	else
+		Col
+		let g:colvis = 1
+	endif
+endfunction
+
 let mapleader = ' '
 nnoremap <leader>e :!'%:p'<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>z :ZenMode<CR>
+nnoremap <leader>z :call ToggleZen()<CR>
 nnoremap <leader>c :call ToggleColors()<CR>
 nnoremap <C-a> ggVG
 nnoremap J mzJ`z
