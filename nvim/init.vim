@@ -112,7 +112,8 @@ function! ToggleColors()
 		colorscheme quiet
 	endif
 
-	highlight Normal guibg=NONE ctermbg=NONE
+	highlight Normal ctermbg=NONE
+	highlight LineNr ctermfg=grey
 
 	" vim-gitgutter
 	highlight GitGutterAdd          ctermfg=2 ctermbg=2
