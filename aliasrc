@@ -8,6 +8,7 @@ alias lla='ll -A'
 
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
+alias tree='tree --dirsfirst'
 
 alias v='$EDITOR'
 alias vv='v .'
