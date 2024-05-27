@@ -187,15 +187,23 @@ EOF
 " Remaps "
 """"""""""
 
+
 let g:colvis = 1
 function ToggleZen()
 	ZenMode
 	if g:colvis == 1
 		NoCol
 		let g:colvis = 0
+		colorscheme acme
 	else
 		Col
 		let g:colvis = 1
+		if g:colors_name == "quiet"
+			colorscheme gruvbox
+		else
+			colorscheme quiet
+		endif
+		highlight Normal ctermbg=NONE
 	endif
 endfunction
 
